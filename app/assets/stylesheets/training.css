@@ -145,6 +145,25 @@ body
     text-align: center;
 }
 
+.buttonChart
+{
+    position: fixed;
+    top: 85%;
+    right: 26%;
+    color: white;
+    background-color: transparent;
+    width: calc(34vh);
+    height: 2px;
+    cursor: pointer;
+    padding-top: 1%;
+    width: 15%;
+    padding-bottom: 2.3%;
+    border: 1.7px solid white;
+    text-decoration: none;
+    font-family: CaviarDreams;
+    font-weight: 700;
+}
+
 .buttonNavVer
 {
     color: white;

@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   authenticated :user do
     resources :profile
     resources :date
-    resources :training 
+    resources :training do
+      member do
+        get 'chart', to: 'chart#index'
+        post 'chart', to: 'chart#index'
+      end
+    end
     post '/training/:id', to: 'training#create', as: 'create_training'
     resources :ranking
   end
@@ -16,5 +21,4 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  get 'hello', to: "hello#index"
 end

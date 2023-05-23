@@ -4,7 +4,7 @@ class TrainingController < ApplicationController
 
   layout false
 
-  def show
+  def show    
     @user = get_current_logged_in_user
     @pumpups = @user.pumpups
   end
