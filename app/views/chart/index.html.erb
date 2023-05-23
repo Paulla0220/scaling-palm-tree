@@ -1,1 +1,49 @@
-<%= line_chart @chart, discrete: true %>
+<head>
+    <%= stylesheet_link_tag "chart" %>
+</head>
+<body class="chart_view">
+
+    <div class="charts">
+        <%= line_chart @chartRep, 
+            title: "ILOSC WYKONANYCH POWTÓRZEŃ NA KAŻDY DZIEŃ", 
+            xtitle: "DATA", 
+            x_labels: { format: '%d.%m.%Y'},
+            ytitle: "POWTÓRZENIA", 
+            empty: "BRAK DANYCH - DODAJ TRENING", 
+            download: {filename: "WYKRES_DATA_POWTORZENIA", background: "#ffffff"}, 
+            colors: ["#FF3660", "#ffffff"], 
+            width: "1000px", 
+            height: "190px",
+            class: "char_1"
+        %>
+
+        <%= line_chart @chartSeries, 
+            title: "ILOSC WYKONANYCH SERII NA KAŻDY DZIEŃ", 
+            xtitle: "DATA", 
+            x_labels: { format: '%d.%m.%Y'},
+            ytitle: "SERIA", 
+            empty: "BRAK DANYCH - DODAJ TRENING", 
+            download: {filename: "WYKRES_DATA_SERIA", background: "#ffffff"}, 
+            colors: ["#FF3660", "#ffffff"],
+            width: "1000px", 
+            height: "190px", 
+            class: "char_2"
+        %>
+
+        <%= line_chart @chartDate, 
+            title: "ILOSC WYKONANYCH POWTORZEŃ OGÓLNIE NA KAŻDY DZIEŃ", 
+            xtitle: "DATA", 
+            x_labels: { format: '%d.%m.%Y'},
+            ytitle: "POWTÓRZENIA", 
+            empty: "BRAK DANYCH - DODAJ TRENING", 
+            download: {filename: "WYKRES_DATA_POWTORZENIA_OGOLEM", background: "#ffffff"}, 
+            colors: ["#FF3660", "#ffffff"],
+            width: "1000px", 
+            height: "190px", 
+            class: "char_2"
+        %>
+
+    </div>
+</body>
+
+
