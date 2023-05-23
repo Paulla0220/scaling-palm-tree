@@ -6,7 +6,7 @@ class Users::SessionsController < Devise::SessionsController
   layout false
   
   def after_sign_in_path_for(resource)
-    profile_index_path
+    profile_path(current_user.id)
   end
   
   # GET /resource/sign_in

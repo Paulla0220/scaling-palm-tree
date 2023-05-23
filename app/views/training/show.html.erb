@@ -1,0 +1,113 @@
+<head>
+    <%= stylesheet_link_tag "training" %>
+    <style>
+    @font-face 
+    {
+      font-family: "CaviarDreams";
+      src: url("fonts/CaviarDreams.ttf");
+    }
+    @font-face 
+    {
+      font-family: "Sunday";
+      src: url("fonts/Sunday.otf");
+    }
+</style>
+<strong>
+   <%= link_to "LOGGER POMPEK", profile_path(current_user.id), class: "home_page_on_profile_page" %>
+</strong>
+</head>
+<body>
+    <script>
+        function ShowNagivationVertical() 
+        {
+             if (document.getElementById("nagivationVertical").style.display === "none") 
+            {
+                document.getElementById("nagivationVertical").style.display = "block";
+            } 
+            else 
+            {
+                document.getElementById("nagivationVertical").style.display = "none";
+            }
+        }
+        function AddTraining() 
+        {
+            if (document.getElementById("blockBackground").style.display === "none") 
+                {
+                    document.getElementById("blockBackground").style.display = "block";
+                } 
+                else 
+                {
+                    document.getElementById("blockBackground").style.display = "none";
+                }
+        } 
+    </script>
+    <div class="nagivationHorizontal">
+    </div>
+    <button onclick="ShowNagivationVertical()" class="showNavVer"><%= image_tag("icons8-menu-50.png", :alt => "icon", class: "icon") %></button></li>
+    
+    <div id="nagivationVertical">
+        <div class="dateProfile">
+            <h1 class="helloProfile">Witaj <%= @user.name %> <%= @user.surname %></h1>
+            <h3 class="nickProfile">jako <%= @user.nick %></h3>
+        </div
+        <ul class="list_button">
+            <li class="list_li"><%= link_to "PROFIL", date_path(@user.id), class: "buttonNavVer" %></li>
+            <li class="list_li"><%= link_to "TRENING", training_path(@user.id), class: "buttonNavVer" %></li>>
+            <li class="list_li"><%= link_to "RANKING", ranking_path(@user.id), class: "buttonNavVer" %></li>
+            <li class="list_li"><%= button_to 'WYLOGUJ SIĘ', destroy_user_session_path, method: :delete, class: "buttonNavVer" %></li>
+        </ul>
+    </div>
+    <div class="blockImage">
+        <%= image_tag("profile.png", :alt => "profile", class: "profile") %>
+
+        <div class="panelUser">
+            <%= link_to "TRENING", training_path(@user.id), class: "panel" %>
+            <table>
+            <tr>
+                <th>SERIA</th>
+                <th>POWTÓRZENIA</th>
+                <th>DATA</th>
+            </tr>
+            <% @pumpups.each do |pumpup| %>
+                <tr>
+                    <th><%= pumpup.series %></th>
+                    <th><%= pumpup.rep %></th>
+                    <th><%= pumpup.date %></th>
+                </tr>
+            <% end %>
+          </table>
+
+          <div class="error">
+          <% if flash[:error].present? %>
+              <p><%= simple_format(flash[:error]) %></p>
+          <% end %>
+          </div>
+
+        <div class="posButton"><button onclick="AddTraining()" class="addTraining">DODAJ TRENING</button></div> 
+        </div>
+    </div>
+        <div id="blockBackground">
+        <h2 id="nameForm">Dodaj trening z robienia pompek</h2>
+            <div class="add">
+                <%= form_with model: [ @user, @user.pumpups.build ], url: create_training_path, metod: :post do |form| %>
+                <p>
+                    <%= form.number_field :rep, placeholder: "POWTÓRZENIA", class: "field" %>
+                </p>
+                <p>
+                    <%= form.number_field :series, placeholder: "SERIA", class: "field" %>
+                </p>
+
+                <p>
+                <%= form.date_field :date, placeholder: "DATA", class: "field" %>
+                </p>
+                <p>
+                    <%= form.submit :DODAJ, class: "button_form" %>
+                </p>
+                <p>
+                    <%= link_to "WRÓĆ", training_path(@user.id), class: "positionButton" %> 
+                </p>
+                <% end %>
+            </div>
+        </div>
+</body>
+

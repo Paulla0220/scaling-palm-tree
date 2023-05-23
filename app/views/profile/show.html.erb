@@ -1,0 +1,54 @@
+<head>
+    <%= stylesheet_link_tag "profile" %>
+    <style>
+    @font-face 
+    {
+      font-family: "CaviarDreams";
+      src: url("fonts/CaviarDreams.ttf");
+    }
+    @font-face 
+    {
+      font-family: "Sunday";
+      src: url("fonts/Sunday.otf");
+    }
+</style>
+<strong>
+   <%= link_to "LOGGER POMPEK", profile_path(current_user.id), class: "home_page_on_profile_page" %>
+</strong>
+</head>
+<body>
+    <script>
+        function ShowNagivationVertical() 
+        {
+             if (document.getElementById("nagivationVertical").style.display === "none") 
+            {
+                document.getElementById("nagivationVertical").style.display = "block";
+            } 
+            else 
+            {
+                document.getElementById("nagivationVertical").style.display = "none";
+            }
+        }
+    </script>
+    <%= image_tag("profile.png", :alt => "profile", class: "profile") %>
+        <h1 class="cytat">PRZECIWNOŚCI LOSU POWODUJĄ, ŻE JEDNI SIĘ ZAŁAMUJĄ, A INNI ŁAMIĄ REKORDY</h1>
+        <h2 class="autor">William A. Ward</h2>
+    <div class="nagivationHorizontal">
+    </div>
+
+    <button onclick="ShowNagivationVertical()" class="showNavVer"><%= image_tag("icons8-menu-50.png", :alt => "icon", class: "icon") %></button></li>
+    
+    <div id="nagivationVertical">
+        <div class="dateProfile">
+            <h1 class="helloProfile">Witaj <%= @user.name %> <%= @user.surname %></h1>
+            <h3 class="nickProfile">jako <%= @user.nick %></h3>
+        </div
+        <ul class="list_button">
+            <li class="list_li"><%= link_to "PROFIL", date_path(@user.id), class: "buttonNavVer" %></li>
+            <li class="list_li"><%= link_to "TRENING", training_path(@user.id), class: "buttonNavVer" %></li>
+            <li class="list_li"><%= link_to "RANKING", ranking_path(@user.id), class: "buttonNavVer" %></li>
+            <li class="list_li"><%= button_to 'WYLOGUJ SIĘ', destroy_user_session_path, method: :delete, class: "buttonNavVer" %></li>
+        </ul>
+    </div>
+</body>
+
