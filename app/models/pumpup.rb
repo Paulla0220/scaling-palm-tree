@@ -1,0 +1,3 @@
+class Pumpup < ApplicationRecord
+  belongs_to :user
+end

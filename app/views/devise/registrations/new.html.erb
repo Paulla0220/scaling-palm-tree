@@ -1,0 +1,76 @@
+<head>
+  <%= stylesheet_link_tag "sign_in_sign_up" %>
+  <%= stylesheet_link_tag "sign_up" %>
+  <style>
+    @font-face 
+    {
+      font-family: "CaviarDreams";
+      src: url('<%= asset_path('CaviarDreams.ttf') %>');
+    }
+    @font-face 
+    {
+      font-family: "Sunday";
+      src: url('<%= asset_path('Sunday.otf') %>');
+    }
+  </style>
+  <strong>
+    <%= link_to "LOGGER POMPEK", root_path, class: "log_in_linkto_home" %>
+  </strong>
+</head>
+<body>
+  <div class="text">
+    <h1>BĄDŹ ZAWSZE <br>Z NAMI</h1>
+  </div>
+    <div class="background_sign_in">
+        <%= video_tag("14.mp4", autoplay: true, loop: true, muted: true, playsinline: true, playspeed: 3, class: "sign_in-video") %>
+    </div>
+
+    <div class="error_message">
+      <%= render "devise/shared/error_messages", resource: resource %>
+    </div>
+  <div class="container_registration">
+  <div class="areas_registration">
+        <%= video_tag("2.mp4", autoplay: true, loop: true, muted: true, playsinline: true, playspeed: 1.5, class: "video_form") %>
+    <h2>ZAREJESTRUJ SIĘ</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+    <div class="field_registration">
+      <%= f.text_field :name, placeholder: "IMIĘ", autofocus: true, class: "button_registration" %>
+    </div>
+
+    <div class="field_registration">
+      <%= f.text_field :surname, placeholder: "NAZWISKO", autofocus: true, class: "button_registration" %>
+    </div>
+
+    <div class="field_registration">
+      <%= f.text_field :nick, placeholder: "NICK", autofocus: true, class: "button_registration" %>
+    </div>
+
+    <div class="field_registration">
+      <%= f.number_field :age, placeholder: "WIEK", min: 11, autofocus: true, class: "button_registration" %>
+    </div>
+
+    <div class="field_registration">
+      <%= f.email_field :email, placeholder: "E-MAIL", autofocus: true, autocomplete: "email", class: "button_registration" %>
+    </div>
+
+    <div class="field_registration">
+      <%= f.password_field :password, placeholder: "HASŁO", autocomplete: "new-password", class: "button_registration" %>
+    </div>
+
+    <div class="field_registration">
+    <%= f.password_field :password_confirmation, placeholder: "POTWIERDŹ HASŁO", autocomplete: "new-password", class: "button_registration" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "ZAREJESTRUJ SIĘ", class: "button_toClick" %>
+    </div>
+
+    <%= render "devise/shared/links" %>
+    <% end %>
+    </div>
+  </div>
+  </div>
+
+</body>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  series: 1
+  rep: 1
+  date: 2023-05-23
+  user: one
+
+two:
+  series: 1
+  rep: 1
+  date: 2023-05-23
+  user: two

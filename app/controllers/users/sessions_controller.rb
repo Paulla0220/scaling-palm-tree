@@ -3,6 +3,12 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  layout false
+  
+  def after_sign_in_path_for(resource)
+    profile_index_path
+  end
+  
   # GET /resource/sign_in
   # def new
   #   super
@@ -17,6 +23,10 @@ class Users::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  def destroy
+    sign_out(current_user)
+    redirect_to root_path
+  end
 
   # protected
 

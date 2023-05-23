@@ -1,0 +1,58 @@
+<head>
+  <%= stylesheet_link_tag "sign_in_sign_up" %>
+  <%= stylesheet_link_tag "sign_in" %>
+  <style>
+    @font-face 
+    {
+      font-family: "CaviarDreams";
+      src: url('<%= asset_path('CaviarDreams.ttf') %>');
+    }
+    @font-face 
+    {
+      font-family: "Sunday";
+      src: url('<%= asset_path('Sunday.otf') %>');
+    }
+  </style>
+  <strong>
+    <%= link_to "LOGGER POMPEK", root_path, class: "log_in_linkto_home" %>
+  </strong>
+</head>
+<body>
+  <div class="text">
+    <h1>BĄDŹ ZAWSZE <br>Z NAMI</h1>
+  </div>
+    <div class="background_sign_in">
+        <%= video_tag("14.mp4", autoplay: true, loop: true, muted: true, playsinline: true, playspeed: 3, class: "sign_in-video") %>
+    </div>
+
+  <div class="container_sessions">
+  <div class="areas_sessions">
+        <%= video_tag("2.mp4", autoplay: true, loop: true, muted: true, playsinline: true, playspeed: 1.5, class: "video_form") %>
+    <h2>LOGOWANIE</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.email_field :email, placeholder: "E-MAIL", autofocus: true, autocomplete: "email", class: "button_session" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, placeholder: "HASŁO", autocomplete: "current-password", class: "button_session" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label "Pamiętaj mnie" %>
+        </div>
+      <% end %>
+
+      <div class="createAccount">
+        <%= f.submit "ZALOGUJ SIĘ", class: "button_toClick" %>
+      </div>
+    <%= render "devise/shared/links" %>
+    <% end %>
+    </div>
+  </div>
+  </div>
+</body>

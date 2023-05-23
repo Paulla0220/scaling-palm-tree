@@ -1,0 +1,73 @@
+.log_in_linkto_home
+{
+    position: absolute;
+    top: 26%;
+    left: 17%;
+    color: rgb(255, 255, 255);
+    font-size: calc(2vh + 1.2vw);
+    font-family: Sunday;
+    text-decoration: none;
+    z-index: 2;
+}
+
+.background_sign_in
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 52%;
+    height: 99.9%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.sign_in-video
+{
+    z-index: -2;
+    filter:contrast(110%);
+}
+
+.text
+{
+    position: absolute;
+    top: 25%;
+    left: 6%;
+
+    color: white;
+    font-family: CaviarDreams;
+    font-size: 2.3em;
+    text-align: center;
+    text-shadow: 1px 1px 20px rgba(0, 3, 16, 0.621);
+}
+
+.video_form 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.button_toClick
+{
+    width: 72%;
+    padding: 5% 2%;
+    margin: 4% 0;
+    border: none;
+
+    cursor: pointer;
+    
+    background-color: #203b44c8;
+    color: white; 
+    border: 1.6px solid white; 
+    font-size: calc(3vh);
+    font-family: CaviarDreams;
+    font-weight: 700;
+}
+
+.button_toClick:hover 
+{
+    background-color: rgba(0, 0, 0, 0.153);
+}
