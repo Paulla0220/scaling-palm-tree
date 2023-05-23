@@ -2,3 +2,11 @@
 //= link_directory ../stylesheets .css
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
+//= link 14.mp4
+//= link 2.mp4
+//= link CaviarDreams.ttf
+//= link Sunday.otf
+//= link home-background.mp4
+//= link 2.png
+//= link profile.png
+//= link icons8-menu-50.png

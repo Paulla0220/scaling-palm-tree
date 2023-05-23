@@ -1,0 +1,41 @@
+<head>
+    <%= stylesheet_link_tag "home" %>
+     <style>
+    @font-face 
+    {
+      font-family: "CaviarDreams";
+      src: url("fonts/CaviarDreams.ttf");
+    }
+    @font-face 
+    {
+      font-family: "Sunday";
+      src: url("fonts/Sunday.otf");
+    }
+    </style>
+    <strong>
+       <%= link_to "LOGGER POMPEK", root_path, class: "home_page" %>
+    </strong>
+</head>
+<body>
+  <div class="click">
+      <div class="button-sign_in">
+        <%= button_to "ZALOGUJ SIĘ", new_user_session_path, method: :get, class: "button_home" %>
+      </div>
+      <div class="button-sign_up">
+        <%= button_to "ZAREJESTRUJ SIĘ", new_user_registration_path, method: :get, class: "button_home" %>
+      </div>
+  </div>
+
+  <div  class="motto">
+    <h1>Teraz razem z nami</h2>
+    <h2>ĆWICZ WIĘCEJ • ŻYJ LEPIEJ</h2>
+  </div>
+ </div>
+
+
+   <div class="background">
+      <%= image_tag("2.png", :alt => "overlay", class: "overlay") %>
+      <%= video_tag("home-background.mp4", autoplay: true, loop: true, muted: true, playsinline: true, class: "home-background-video") %>
+  </div>
+
+</body>
