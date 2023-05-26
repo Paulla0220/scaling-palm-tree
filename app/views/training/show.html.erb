@@ -20,7 +20,7 @@
     <script>
         function ShowNagivationVertical() 
         {
-             if (document.getElementById("nagivationVertical").style.display === "none") 
+            if (document.getElementById("nagivationVertical").style.display === "none" || document.getElementById("nagivationVertical").style.display === "") 
             {
                 document.getElementById("nagivationVertical").style.display = "block";
             } 
@@ -31,15 +31,11 @@
         }
         function AddTraining() 
         {
-            if (document.getElementById("blockBackground").style.display === "none") 
-                {
-                    document.getElementById("blockBackground").style.display = "block";
-                } 
-                else 
-                {
-                    document.getElementById("blockBackground").style.display = "none";
-                }
+            document.getElementById("blockBackground").style.display = "block";
         } 
+
+        document.getElementById("nagivationVertical").addEventListener("click", onClick);
+        document.getElementById("blockBackground").addEventListener("click", onClick);
     </script>
     <div class="nagivationHorizontal">
     </div>

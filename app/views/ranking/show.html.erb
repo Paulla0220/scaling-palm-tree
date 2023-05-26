@@ -13,14 +13,14 @@
     }
 </style>
 <strong>
-   <%= link_to "LOGGER POMPEK", profile_index_path, class: "home_page_on_profile_page" %>
+   <%= link_to "LOGGER POMPEK", profile_path, class: "home_page_on_profile_page" %>
 </strong>
 </head>
 <body>
     <script>
         function ShowNagivationVertical() 
         {
-             if (document.getElementById("nagivationVertical").style.display === "none") 
+            if (document.getElementById("nagivationVertical").style.display === "none" || document.getElementById("nagivationVertical").style.display === "") 
             {
                 document.getElementById("nagivationVertical").style.display = "block";
             } 
