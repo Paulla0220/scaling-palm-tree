@@ -62,6 +62,7 @@
 
         <div class="panelUser">
             <%= link_to "TRENING", training_path(@user.id), class: "panel" %>
+            <h1 class="nameTable">WYKONANA ILOŚĆ SERII I POWTÓRZEŃ POMPKÓW WZGLĘDEM DATY</h1>
             <table>
             <tr>
                 <th>SERIA</th>
@@ -83,6 +84,7 @@
           <% end %>
           </div>
 
+        <%= link_to "POKAŻ PDF", url_for(format: :pdf, controller: 'training', action: 'show', id: @user.id), class: "PDF" %>
         <%= button_to 'POKAŻ WYKRES', chart_training_path, formtarget: "_blank", class: "buttonChart" %>
         <div class="posButton"><button onclick="AddTraining()" class="addTraining">DODAJ TRENING</button></div> 
         </div>

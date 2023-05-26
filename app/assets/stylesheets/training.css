@@ -387,3 +387,35 @@ tr:not(:first-child):hover
     left: 50%;
     font-size: medium;
 }
+
+.nameTable
+{
+    position: fixed;
+    color: white;
+    top: 12%;
+    left: 53%;
+    font-size: 40%;
+    font-family: CaviarDreams;
+    font-weight: 900;
+}
+
+.PDF
+{
+    position: fixed;
+    top: 85%;
+    right: 42%;
+    color: white;
+    background-color: transparent;
+    font-size: 47%;
+    width: calc(15vh);
+    height: 2px;
+    cursor: pointer;
+    padding-top: 1%;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 2.3%;
+    border: 1.5px solid white;
+    text-decoration: none;
+    font-family: CaviarDreams;
+    font-weight: 700;
+}

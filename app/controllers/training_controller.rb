@@ -7,6 +7,37 @@ class TrainingController < ApplicationController
   def show    
     @user = get_current_logged_in_user
     @pumpups = @user.pumpups
+    @fileDF = generatePDF
+  end
+
+  def generatePDF
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+
+        pdf.font_families["pdfFont"] = {
+          normal: "#{Rails.root}/app/assets/fonts/CaviarDreams.ttf"
+        }
+
+        pdf.font "pdfFont"
+
+        pdf.text "WYKONANA ILOŚĆ SERII I POWTÓRZEŃ POMPKÓW WZGLĘDEM DATY", size: 20, align: :center
+        pdf.move_down 30
+  
+        pdfDate = []
+        pdfDate << ["SERIA", "POWTÓRZENIA", "DATA"]
+
+        @pumpups.each do |pumpup|
+          pdfDate << [pumpup.series, pumpup.rep, pumpup.date]
+        end
+       
+        pdf.table(pdfDate, header: true, cell_style: { border_width: 0.7, padding_left: 50, padding_right: 50, align: :center}, position: :center)
+        pdf.number_pages "STRONA <page>", at: [pdf.bounds.right - 70, pdf.bounds.bottom]
+
+        send_data pdf.render, type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
   def new
