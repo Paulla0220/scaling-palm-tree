@@ -14,11 +14,11 @@ class RankingController < ApplicationController
     private
   
     def find_top5_with_rep
-      User.joins(:pumpups).where(pumpups: { date: Time.now.beginning_of_month..Time.now.end_of_month }).group('users.id').order('SUM(pumpups.rep) DESC').limit(5)
+      User.joins(:pumpups).where(pumpups: { date: Time.now.beginning_of_week..Time.now.end_of_week }).group('users.id').order('SUM(pumpups.rep) DESC').limit(5)
     end
   
     def find_top5
-      User.joins(:pumpups).where(pumpups: { date: Time.now.beginning_of_month..Time.now.end_of_month }).select('users.*, SUM(pumpups.series * pumpups.rep) AS result').group('users.id').order('result DESC').limit(5)
+      User.joins(:pumpups).where(pumpups: { date: Time.now.beginning_of_week..Time.now.end_of_week }).select('users.*, SUM(pumpups.series * pumpups.rep) AS result').group('users.id').order('result DESC').limit(5)
     end
   
     def find_top4
@@ -26,7 +26,7 @@ class RankingController < ApplicationController
     end
   
     def find_top3
-      User.joins(:pumpups).where(pumpups: { date: Time.now.beginning_of_week..Time.now.end_of_week }).group('users.id').order('COUNT(pumpups.id) DESC').limit(3)
+      User.joins(:pumpups).where(pumpups: { date: Time.now.beginning_of_month..Time.now.end_of_month }).group('users.id').order('COUNT(pumpups.id) DESC').limit(3)
     end
   
     def get_current_logged_in_user
