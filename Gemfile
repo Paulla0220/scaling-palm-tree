@@ -9,7 +9,7 @@ gem "rails", "~> 7.0"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-gem "chartkick"
+gem 'chartkick', '3.4.2'
 
 gem 'devise'
 

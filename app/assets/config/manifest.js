@@ -10,3 +10,5 @@
 //= link 2.png
 //= link profile.png
 //= link icons8-menu-50.png
+//= link chartkick.js
+//= link Chart.bundle.js
