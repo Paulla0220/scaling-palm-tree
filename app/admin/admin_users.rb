@@ -1,19 +1,22 @@
 ActiveAdmin.register AdminUser do
+  menu label: 'Administratorzy'
   permit_params :email, :password, :password_confirmation
 
   index do
     selectable_column
     id_column
     column :email
-    column :updated_at
-    column :created_at
+    column "Data modyfikacji", :updated_at
+    column "Data utworzenia", :created_at
     actions
   end
 
   filter :email
   filter :current_sign_in_at
   filter :sign_in_count
-  filter :created_at
+  filter :created_at, label: "Data utworzenia"
+  filter :updated_at, label: "Data modyfikacji"
+
 
   form do |f|
     f.inputs do

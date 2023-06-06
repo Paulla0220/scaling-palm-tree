@@ -1,20 +1,23 @@
 ActiveAdmin.register User do
+  menu label: 'Użytkownicy'
+  
+
   permit_params :email, :name, :surname, :nick, :age, :password, :password_confirmation
  
-  filter :name
-  filter :surname
+  filter :name, label: 'Imię'
+  filter :surname, label: 'Nazwisko'
   filter :nick
-  filter :age
+  filter :age, label: 'Wiek'
   filter :email
-  filter :created_at
-  filter :updated_at
+  filter :created_at, label: 'Data utworzenia'
+  filter :updated_at, label: 'Data modyfikacji'
   
   index do
     selectable_column
     id_column
     column :email
-    column :updated_at
-    column :created_at
+    column 'Data utworzenia', :created_at
+    column 'Data modyfikacji', :updated_at
     actions
   end
 
