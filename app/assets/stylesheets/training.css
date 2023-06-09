@@ -383,9 +383,18 @@ tr:not(:first-child):hover
 .error
 {
     position: fixed;
-    top: 7%;
-    left: 50%;
+    left: 35%;
+    top: 40%;
+    
     font-size: medium;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    padding: 1%;
+    color: rgb(219, 134, 7);
+    text-align: center;
+
+    background-color: rgba(1, 80, 106, 0.64);
+    border-radius: 20px;    
 }
 
 .nameTable
