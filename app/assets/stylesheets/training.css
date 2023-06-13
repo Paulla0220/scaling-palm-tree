@@ -383,7 +383,7 @@ tr:not(:first-child):hover
 .error
 {
     position: fixed;
-    left: 35%;
+    left: 5%;
     top: 40%;
     
     font-size: medium;
